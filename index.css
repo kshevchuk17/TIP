@@ -29,10 +29,16 @@ a {
 
 .links_list {
     position: absolute;
-    bottom: 5%;
+    bottom: 50%;
     right:5%;
     display: flex;
     justify-content: flex-end;
+}
+.links_list a {
+    font-size: 18px;
+}
+.links_list b {
+    font-size: 18px;
 }
 
 .frame_container {
@@ -44,10 +50,10 @@ a {
 }
 
 .signature {
-    margin-bottom: -30px;
+    margin-bottom: 20px;
     position: absolute;
     bottom: 2%;
-    right: 2%;
+    right: 5%;
     font-style: italic;
     text-align: right;
 }
