@@ -6,6 +6,12 @@ a {
     color: black;
     text-decoration: none;
 }
+a:link {
+    color: black;
+}
+a:hover {
+    color: #949494;
+}
 
 .main_title {
     position: absolute;
