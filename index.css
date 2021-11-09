@@ -2,16 +2,20 @@ body {
     background-color: #e1ecd6;
     overflow-x: hidden;
 }
+
 a {
     color: black;
     text-decoration: none;
 }
+
 a:link {
     color: black;
 }
+
 a:hover {
     color: #949494;
 }
+
 
 .main_title {
     position: absolute;
@@ -21,15 +25,18 @@ a:hover {
     display: flex;
     justify-content: center;
 }
+
 .main_container {
     width: 100%;
     margin-bottom: 75px;
     display: flex;
     justify-content: center;
 }
+
 .column {
     flex-direction: column;
 }
+
 .border {
     border-bottom: 1px solid black
 }
@@ -37,13 +44,15 @@ a:hover {
 .links_list {
     position: absolute;
     bottom: 50%;
-    right:5%;
+    right: 5%;
     display: flex;
     justify-content: flex-end;
 }
+
 .links_list a {
     font-size: 18px;
 }
+
 .links_list b {
     font-size: 18px;
 }
@@ -78,6 +87,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
 }
+
 .navigation a {
     width: 33.33%;
     text-align: center;
