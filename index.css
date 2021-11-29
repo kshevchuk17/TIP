@@ -1,6 +1,7 @@
 body {
     background-color: #e1ecd6;
     overflow-x: hidden;
+    font-size: 20px;
 }
 
 a {
@@ -31,6 +32,11 @@ a:hover {
     margin-bottom: 75px;
     display: flex;
     justify-content: center;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid black;
 }
 
 .column {
@@ -72,6 +78,7 @@ a:hover {
     right: 5%;
     font-style: italic;
     text-align: right;
+    font-size: 15px;
 }
 
 .navigation {
@@ -92,4 +99,8 @@ a:hover {
     width: 33.33%;
     text-align: center;
     font-size: 20px;
+}
+
+.main_image {
+    padding: 10% 0 0 5%;
 }

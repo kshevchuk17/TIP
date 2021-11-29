@@ -1,0 +1,11 @@
+ol {
+    font-weight: bold;
+}
+div {
+    font-weight: normal
+}
+
+.inner_ol {
+    list-style-type: disc;
+    font-weight: normal
+}
