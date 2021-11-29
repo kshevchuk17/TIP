@@ -5,7 +5,6 @@ body {
 
 a {
     color: black;
-    text-decoration: none;
 }
 
 a:link {
@@ -86,7 +85,7 @@ a:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
+    }
 
 .navigation a {
     width: 33.33%;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Калькулятор</title>
+   <link rel="stylesheet" href="./calc.css">
+</head>
+<body>
+<div style="text-align: center" class="border"><h1>Калькулятор</h1></div>
+
+<div class="center" style="margin-top: 20px;">
+   <span>Число 1: </span><input id="num1" />
+   <br>
+   <div style="margin-right: 110px">
+      <span>Операция: </span><select id="operation" onchange="operationChange()">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="++">++</option>
+      <option value="--">--</option>
+   </select>
+   </div>
+   <span>Число 2: </span><input id="num2" />
+   <br>
+   <button onclick="calculate()">Посчитать</button>
+   <br>
+   <span>Результат: </span><span id="result"></span>
+</div>
+
+<script type="text/javascript">
+    alert("Добро пожаловать на страницу Калькулятор")
+    function operationChange() {
+        return document.getElementById("operation").value;
+    }
+    function calculate() {
+        let result;
+        let num1 = Number(document.getElementById("num1").value);
+        const num2 = Number(document.getElementById("num2").value);
+        switch (operationChange()) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+            case '++':
+                result = ++num1;
+                break;
+            case '--':
+                result = --num1;
+                break;
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+
+<div class="navigation">
+   <a href="framesPage.html">< Вымершие опасные твари</a>
+   <a href="index.html">Главная</a>
+   <a href="aboutPage.html">Об опасных тварях ></a>
+</div>
+</body>
+</html>

@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-   <meta charset="UTF-8">
-   <title>Title</title>
-   <link rel="stylesheet" href="./index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="./index.css">
+    <script>
+        const byArr = ["Студзень", "Люты", "Сакавік", "Красавік", "Травень", "Чэрвень", "Ліпень", "Жнівень", "Верасень", "Кастрычнік", "Лістапад", "Снежань"]
+        const ruArr = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+        const enArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        const spArr = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+        check = confirm("Мы тестируем новую функцию - смена языков.Хотите продолжить?")
+        if (check) {
+            let lang = prompt("Выберите язык: \nБелорусский(by) \nРусский(ru) \nАнглийский(en) \nИспанский(sp) ")
+            switch (lang) {
+                case 'by':
+                    console.log (byArr.join("\t"))
+                    break;
+                case 'ru':
+                    console.log (ruArr.join("\t"))
+                    break;
+                case 'en':
+                    console.log (enArr.join("\t"))
+                    break;
+                case 'fr':
+                    console.log (spArr.join("\t"))
+                    break;
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="main_title">
@@ -11,9 +36,6 @@
 </div>
 <div style="padding: 10% 0 0 5%">
    <img src=./images/Человек-паук.jpg height="40%" width="60%"/>
-</div>
-<div style="padding: 15px 0 0 5%">
-    <a href="rab.html">Главная страница университета</a>
 </div>
 <div class="links_list">
     <ul>
@@ -39,10 +61,13 @@
         <li>
             <a href="framesPage.html">Вымершие опасные твари</a>
         </li>
+        <li>
+            <a href="Calculator.html">Калькулятор</a>
+        </li>
     </ul>
 </div>
 <div class="signature">
-    <span >Данный сайт сделана студентами группы 820603:<br>Шевчук К.Э.<br>Гайдюк А.А.</span>
+    <span >Данный сайт сделан студентами группы 820603:<br>Шевчук К.Э.<br>Гайдюк А.А.</span>
 </div>
 
 </body>
