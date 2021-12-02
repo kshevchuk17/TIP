@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
    <title>Информационная страница об опасных тварях</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./index.css">
-   <link rel="stylesheet" href="./aboupPage.css">
+   <link rel="stylesheet" href="{% static 'style/index.css' %}">
+   <link rel="stylesheet" href="{% static 'style/aboupPage.css' %}">
 </head>
 <body bgcolor="#e1ecd6">
     <div class="main_container column">
@@ -37,15 +38,15 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
             <audio controls>
-                <source src="audio.mp3" type="audio/ogg; codecs=vorbis">
+                <source src="../../../audio.mp3" type="audio/ogg; codecs=vorbis">
             </audio>
         </div>
 
     </div>
     <footer class="navigation">
-        <a href="DSofBelarus.html">< Опасные твари беларуси</a>
-        <a href="index.html">Главная</a>
-        <a href="descriptionPage.html">Особые признаки опасных тварей ></a>
+        <a href="{% url 'kinds_of_ds' %}">< Опасные твари беларуси</a>
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'description' %}">Особые признаки опасных тварей ></a>
     </footer>
 </body>
 </html>

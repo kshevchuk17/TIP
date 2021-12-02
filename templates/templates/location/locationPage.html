@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Места обитания наполненные опасными тварями</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./locationPage.css">
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <link rel="stylesheet" href="{% static 'style/locationPage.css' %}">
 </head>
 <body bgcolor="#e1ecd6">
         <div class="main_container column">
@@ -22,7 +23,7 @@
         </map>
 
         <div style="display: flex; justify-content: center">
-            <img usemap="#navigation" src="./images/Карта.jpg" width="100%" height="600"/>
+            <img usemap="#navigation" src="{% static 'img/Карта.jpg' %}" width="100%" height="600"/>
         </div>
 
         <div class="container">
@@ -67,7 +68,7 @@
                     </article>
                 </div>
                 <div class="flex">
-                    <img src="images/Австралия.jpg" width="320" height="160"/>
+                    <img src="{% static 'img/Австралия.jpg' %}" width="320" height="160"/>
                 </div>
             </div>
             <div id="amazonka" class="item">
@@ -114,7 +115,7 @@
                     </article>
                 </div>
                 <div class="flex">
-                    <img src="images/Амазонка.jpeg" width="320" height="160" />
+                    <img src="{% static 'img/Амазонка.jpeg' %}" width="320" height="160" />
                 </div>
             </div>
             <div id="africa" class="item">
@@ -136,7 +137,7 @@
                 </div>
 
                 <div class="flex">
-                    <img src="images/Африка.jpeg" width="320" height="160" />
+                    <img src="{% static 'img/Африка.jpeg' %}" width="320" height="160" />
                 </div>
             </div>
             <div id="ostrov" class="item">
@@ -178,15 +179,15 @@
                     </article>
                 </div>
                 <div class="flex">
-                    <img src="./images/Остров%20змей.jpeg" width="320" height="160"/>
+                    <img src="{% static 'img/Остров_змей.jpeg' %}" width="320" height="160"/>
                 </div>
             </div>
         </div>
         </div>
         <footer class="navigation">
-            <a href="kindsOfDS.html">< Виды</a>
-            <a href="index.html">Главная</a>
-            <a href="topDS.html">Самые опасные ></a>
+            <a href="{% url 'kinds_of_ds' %}">< Виды</a>
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'top_ds' %}">Самые опасные ></a>
         </footer>
 </body>
 </html>

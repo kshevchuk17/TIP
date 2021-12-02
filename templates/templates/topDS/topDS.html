@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Самые опасные виды для человека.</title>
+   <link rel="stylesheet" href="{% static 'style/index.css' %}">
+   <link rel="stylesheet" href="{% static 'style/topDS.css' %}">
+</head>
+<body>
+<div class="main_container column">
+   <header class="header" style="border: none">
+      <h1>Топ 10 самых опасных видов для человека</h1>
+   </header>
+   <table bgcolor="grey" align="center" border="10" width="95%" height="100%">
+      <colgroup bgcolor="white" align="center" span=5>
+         <tr height="10%">
+            <th>Вид</th>
+            <th>Описание</th>
+            <th>Жертв в год</th>
+            <th>Фото</th>
+         </tr>
+         <tr>
+            <th>Львы</th>
+            <th align="left" class="padding_for_text">
+               Эти хищники, вопреки распространенному мнению, убивают меньше всего людей в год.
+            </th>
+            <th>200</th>
+            <th>
+               <img src="{% static 'img/Лев.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Бегемоты</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Это млекопитающее единственный современный вид рода Hippopotamus.
+                  По словам зоологов, поведение этих животных отличается агрессивностью, причем как по отношению к своим
+                  сородичам, так и к человеку. Бегемот считается самым опасным обитателем Африки.
+               </article>
+            </th>
+            <th>500</th>
+            <th>
+               <img src="{% static 'img/Бегемот.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Слоны</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Слон является самым крупным животным на Земле. Несмотря на то, что
+                  у человека это травоядное, как правило, не вызывает особого страха, на самом деле животное может быть
+                  довольно агрессивным. Больше всего такое поведение свойственно африканским слонам.
+               </article>
+            </th>
+            <th>600</th>
+            <th>
+               <img src="{% static 'img/Слон.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Крокодилы</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Считается, что аллигаторы и крокодилы обладают самым мощным укусом
+                  из всех животных существующих на планете. В частности, в 2003 году, укус миссисипского аллигатора весом в
+                  272 кг был измерен в 9452 Н.
+               </article>
+            </th>
+            <th>1000</th>
+            <th>
+               <img src="{% static 'img/Крокодил.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Скорпионы</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Эти членистоногие обитают в жарких странах. Всего известно около
+                  1750 видов скорпионов, но для человека опасен яд только 50 из них.
+               </article>
+            </th>
+            <th>3300</th>
+            <th>
+               <img src="{% static 'img/Скорпион.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Хищнецы</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Представители этих насекомых широко распространены по всему миру.
+                  Сок такого жука-убийцы содержит паралитический яд и ферменты, разлагающие внутренности жертвы. Укус особого
+                  вида этих насекомых – триатомовых клопов – вызывает болезнь Шагаса. Опасность в том, что на ранней стадии
+                  симптомы незначительны или вовсе отсутствуют.
+               </article>
+            </th>
+            <th>10 тыс.</th>
+            <th>
+               <img src="{% static 'img/Жук.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Собаки</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Лучший друг человека вошел в пятерку самых опасных животных на планете.
+               </article>
+            </th>
+            <th>59 тыс.</th>
+            <th>
+               <img src="{% static 'img/Собака.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Змеи</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Змеи обитают на всех континентах, кроме Антарктиды и нескольких крупных островов. Некоторые ядовиты, но
+                  неядовитые представлены большим количеством видов.
+               </article>
+            </th>
+            <th>138 тыс.</th>
+            <th>
+               <img src="{% static 'img/Змея.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Люди</th>
+            <th align="left" class="padding_for_text"><article>А вот серебро достается самому Homo sapiens.</article></th>
+            <th>400 тыс.</th>
+            <th>
+               <img src="{% static 'img/Человек.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+         <tr>
+            <th>Комары</th>
+            <th align="left" class="padding_for_text">
+               <article>
+                  Эти маленькие, но звонкие насекомые представляют собой самую большую угрозу для жизни человека,
+                  поскольку часто являются переносчиками различных заболеваний.
+               </article>
+            </th>
+            <th>725 тыс.</th>
+            <th>
+               <img src="{% static 'img/Комар.jpg' %}" max-width="200px" height="150px"/>
+            </th>
+         </tr>
+   </table>
+</div>
+
+<footer class="navigation">
+   <a href="{% url 'location' %}">< Места обитания</a>
+   <a href="{% url 'index' %}">Главная</a>
+   <a href="{% url 'ds_of_belarus' %}">Опасные твари Беларуси ></a>
+</footer>
+</body>
+</html>
