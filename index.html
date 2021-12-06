@@ -6,25 +6,25 @@
     <title>Главная страница</title>
     <link rel="stylesheet" href="./index.css">
     <script>
-        const byArr = ["Студзень", "Люты", "Сакавік", "Красавік", "Травень", "Чэрвень", "Ліпень", "Жнівень", "Верасень", "Кастрычнік", "Лістапад", "Снежань"]
-        const ruArr = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
-        const enArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        const spArr = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-        check = confirm("Мы тестируем новую функцию - смена языков.Хотите продолжить?")
+        const byArr = ["Студзень", "Люты", "Сакавік", "Красавік", "Травень", "Чэрвень", "Ліпень", "Жнівень", "Верасень", "Кастрычнік", "Лістапад", "Снежань"];
+        const ruArr = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        const enArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const esArr = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        check = confirm("Мы тестируем новую функцию - смена языков. Хотите продолжить?");
         if (check) {
-            let lang = prompt("Выберите язык: \nБелорусский(by) \nРусский(ru) \nАнглийский(en) \nИспанский(sp) ")
+            const lang = prompt("Введите код языка:\n- Белорусский(by)\n- Русский(ru)\n- Английский(en)\n- Испанский(es)");
             switch (lang) {
                 case 'by':
-                    console.log (byArr.join("\t"))
+                    console.log("\tМассив месяцев на белорусском языке:\n" + `\"${byArr.join(", ")}\"`);
                     break;
                 case 'ru':
-                    console.log (ruArr.join("\t"))
+                    console.log("\tМассив месяцев на русском языке:\n" + ruArr.join(" \\ "));
                     break;
                 case 'en':
-                    console.log (enArr.join("\t"))
+                    console.log("\tМассив месяцев на английском языке:\n" + enArr.join(",\n"));
                     break;
-                case 'fr':
-                    console.log (spArr.join("\t"))
+                case 'es':
+                    console.log("\tМассив месяцев на испанском языке:\n" + `\'${esArr.join(", ")}\'`);
                     break;
             }
         }
@@ -61,6 +61,9 @@
         <li>
             <a href="framesPage.html">Вымершие опасные твари</a>
         </li>
+    </ul>
+    <ul>
+        <b>Дополнительно:</b>
         <li>
             <a href="Calculator.html">Калькулятор</a>
         </li>

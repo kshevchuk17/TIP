@@ -4,15 +4,17 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Калькулятор</title>
-   <link rel="stylesheet" href="./calc.css">
+   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-<div style="text-align: center" class="border"><h1>Калькулятор</h1></div>
+<div class="header">
+   <h1>Калькулятор</h1>
+</div>
 
-<div class="center" style="margin-top: 20px;">
-   <span>Число 1: </span><input id="num1" />
+<div class="calc">
+   <span class="num">Число 1: </span><input id="num1" type="number" />
    <br>
-   <div style="margin-right: 110px">
+   <div class="operation">
       <span>Операция: </span><select id="operation" onchange="operationChange()">
       <option value="+">+</option>
       <option value="-">-</option>
@@ -22,9 +24,9 @@
       <option value="--">--</option>
    </select>
    </div>
-   <span>Число 2: </span><input id="num2" />
+   <span class="num">Число 2: </span><input id="num2" type="number" />
    <br>
-   <button onclick="calculate()">Посчитать</button>
+   <button class="calculateButton" onclick="calculate()">Посчитать</button>
    <br>
    <span>Результат: </span><span id="result"></span>
 </div>
@@ -58,6 +60,7 @@
                 result = --num1;
                 break;
         }
+        // alert(`Результат: ${result}`);
         document.getElementById("result").innerHTML = result;
     }
 </script>
