@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Калькулятор</title>
-   <link rel="stylesheet" href="./index.css">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Калькулятор</title>
+    <link href="./index.css" rel="stylesheet">
 </head>
 <body>
 <div class="header">
-   <h1>Калькулятор</h1>
+    <h1>Калькулятор</h1>
 </div>
 
 <div class="calc">
-   <span class="num">Число 1: </span><input id="num1" type="number" />
-   <br>
-   <div class="operation">
-      <span>Операция: </span><select id="operation" onchange="operationChange()">
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="*">*</option>
-      <option value="/">/</option>
-      <option value="++">++</option>
-      <option value="--">--</option>
-   </select>
-   </div>
-   <span class="num">Число 2: </span><input id="num2" type="number" />
-   <br>
-   <button class="calculateButton" onclick="calculate()">Посчитать</button>
-   <br>
-   <span>Результат: </span><span id="result"></span>
+    <span class="num">Число 1: </span><input id="num1" type="number"/>
+    <br>
+    <div class="operation">
+        <span>Операция: </span>
+        <select id="operation" onchange="operationChange()">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="++">++</option>
+            <option value="--">--</option>
+        </select>
+    </div>
+    <span class="num">Число 2: </span><input id="num2" type="number"/>
+    <br>
+    <button class="calculateButton" onclick="calculate()">Посчитать</button>
+    <br>
+    <span>Результат: </span><span id="result"></span>
 </div>
 
 <script type="text/javascript">
     alert("Добро пожаловать на страницу Калькулятор")
+
     function operationChange() {
         return document.getElementById("operation").value;
     }
+
     function calculate() {
         let result;
         let num1 = Number(document.getElementById("num1").value);
@@ -66,9 +69,9 @@
 </script>
 
 <div class="navigation">
-   <a href="framesPage.html">< Вымершие опасные твари</a>
-   <a href="index.html">Главная</a>
-   <a href="aboutPage.html">Об опасных тварях ></a>
+    <a href="framesPage.html">< Вымершие опасные твари</a>
+    <a href="index.html">Главная</a>
+    <a href="aboutPage.html">Об опасных тварях ></a>
 </div>
 </body>
 </html>

@@ -5,6 +5,136 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="./index.css">
+    <script>
+        const task1 = () => {
+            let response = prompt("Каким языком программирования ты пользуешься?");
+            if ( ['JS', 'js', 'JavaScript', "Javascript", 'javascript'].indexOf(response) !== -1)
+            {
+                alert("Отличный выбор!")
+            }
+            else if ( ['Python', 'python'].indexOf(response) !== -1 )
+            {
+                alert("Отличный выбор!")
+            }
+            else
+            {
+                alert("У меня нет информации об этом языке :(")
+            }
+
+        }
+
+        const task2 = () => {
+            let x = 0
+            do {
+                x++;
+                alert(`Выводим цифры от 1 до 5 в цикле, сейчас у нас: ${x}`)
+            } while (x < 5)
+        }
+
+        const task3 = () => {
+            let y = 0;
+            do
+            {
+                sometext = prompt("Введите текст","Впечатайте любой текст");
+                y++;
+            } while ((sometext === "Впечатайте любой текст" || sometext === "" || sometext === null) && y < 3);
+            alert('Вы не ввели текст 3 раза');
+        }
+        const task4 = () => {
+            let x = 0
+            while (x !== 5) {
+                x++
+                alert(`Выводим цифры от 1 до 5 в цикле while, сейчас у нас: ${x}`)
+            }
+        }
+
+        const task5 = () => {
+            let myarray = new Array();
+            for (let i = 9; i >= 0; i--)
+            {
+                myarray[9 - i] = i;
+            }
+            alert(myarray);
+        }
+
+        const task6 = () => {
+            let myarray = ["Австралия", "Амфибия", "Бегемот", "Жук", "Змея", "Карта", "Комар", "Лев", "Слон", "Собака"];
+            let y = -1, ys = "", extent1 = ".jpg";
+            for (let x in myarray)
+            {
+                y++;
+                ys=y;
+                myarray[x] = "\n<a src=\"./images/" + myarray[x] + extent1 + '"' +">рис."+ys+"</a>";
+            }
+            alert("Ссылки на мои картинки gif-формата:"+myarray);
+        }
+
+        const task7 = () => {
+            let x = 0;
+            while (x < 10)
+            {
+                x++;
+                if (x % 2 === 1)
+                {
+                    continue;
+                }
+                alert(x);
+            }
+        }
+
+        const task8 = () => {
+            let breakat = prompt("Введите число для прерывания цикла от 1 до 10-ти ", "");
+            for (let i = 0; i <= breakat; i++)
+            {
+                alert(i);
+            }
+        }
+
+        const task9 = () => {
+            var yourchoice;
+            yourchoice = prompt("Введите букву из перечисленных ниже, а я покажу вам что вы ввели:\na, b, c, d, e")
+            switch (yourchoice)
+            {
+                case "a":
+                    alert("Вы ввели a");
+                    break;
+                case "b":
+                    alert("Вы ввели b");
+                    break;
+                case "c":
+                    alert("Вы ввели c");
+                    break;
+                case "d":
+                    alert("Вы ввели d");
+                    break;
+                case "e":
+                    alert("Вы ввели e");
+                    break;
+                default:
+                    alert(`Наверное вы промахнулись :(\nВы не ввели ${yourchoice}, а надо было из тех что были предложены`);
+                    break;
+            }
+        }
+
+        // task1();
+        // task2();
+        // task3();
+        // task4();
+        // task5();
+        // task6();
+        // task7();
+        // task8();
+        // task9();
+    </script>
+    <script language="JavaScript">
+        let inputPassword = prompt('Введите пароль, пожалуйста:')
+        if (inputPassword === localStorage.getItem('password')) {
+            alert('Nice, а пароль то вы не забыли :)')
+        } else {
+            alert('Пароль неверный, возможно вы не тот за кого себя выдаете :-/')
+            top.location.href = 'index.html'
+        }
+    </script>
 </head>
 <body bgcolor="#e1ecd6">
     <div class="main_container column">
