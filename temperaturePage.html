@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+    <link rel="stylesheet" href="./index.css">
+    <script language="JavaScript">
+        function FromCellToFar() {
+            let res = prompt('Введите количество градусов по Цельсию')
+            alert(`Результат: ${(res * 9) / 5 + 32}`)
+        }
+        function FromFarToCell() {
+            let res = prompt('Введите количество градусов по Фаренгейту')
+            alert(`Результат: ${(res - 32) * 5 / 9}`)
+        }
+        function FromCellToReom() {
+            let res = prompt('Введите количество градусов по Цельсию')
+            alert(`Результат: ${res * 0.8}`)
+        }
+        function FromReomToCell() {
+            let res = prompt('Введите количество градусов по Реомюру')
+            alert(`Результат: ${res * 1.25}`)
+        }
+        function FromFarToReom() {
+            let res = prompt('Введите количество градусов по Фаренгейту')
+            alert(`Результат: ${(res - 32) * 4 / 9}`)
+        }
+        function FromReomToFar() {
+            let res = prompt('Введите количество градусов по Реомюру')
+            alert(`Результат: ${(res * 9) / 4 + 32}`)
+        }
+    </script>
+    <style>
+        button {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div style="display: flex; flex-direction: column; width: 30%">
+    <button onclick="FromCellToFar();">Из цельсия в фаренгейт</button>
+    <button onclick="FromFarToCell();">Из фаренгейта в цельций</button>
+    <button onclick="FromCellToReom();">Из цельсия в рюмор</button>
+    <button onclick="FromReomToCell();">Из реомюр в цельсий</button>
+    <button onclick="FromFarToReom();">Из фаренгейта в реомюр</button>
+    <button onclick="FromReomToFar();">Из реомюр в фаренгейт</button>
+</div>
+</body>
+</html>

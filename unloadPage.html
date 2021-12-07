@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unload</title>
+  <link rel="stylesheet" href="./index.css">
+  <script language="JavaScript">
+    function unload() {
+      alert('Прощай :-(')
+    }
+    window.onbeforeunload = unload()
+
+    // window.onbeforeunload = function() {
+    //   return "Прощай :-(";
+    //   // alert('Прощай :-(')
+    // };
+  </script>
+</head>
+<body>
+  <div style="position: fixed; left: 45%; bottom: 45%; font-size: 50px">
+    <a href="index.html">Unload</a>
+  </div>
+</body>
+</html>

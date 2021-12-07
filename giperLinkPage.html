@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GiperLink</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <script language="JavaScript">
+        function reaction() {
+            alert('Сейчас произойдет перенаправление')
+            top.location.href = 'index.html'
+        }
+    </script>
+    <div style="position: fixed; left: 45%; bottom: 45%; font-size: 50px">
+        <a onmouseout="reaction()" id="giperLink">Main Page</a>
+    </div>
+</body>
+</html>
