@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>ѕрименение слоев, движение изображени€</title>
+    <META content="text/html" http-equiv="Content-Type">
+    <link rel="stylesheet" href="./index.css">
+    <SCRIPT LANGUAGE="JavaScript">
+        let p1;     // текуща€ координата сло€
+        let sp1;    // приращение при движении сло€
+        let Circle = false;
+        let Line = false;
+        // установка начальных параметров перемещени€ сло€
+        function initLine() {
+            Line = false;
+            p1 = 700;
+            sp1 = 1;
+            l1.style.left = 700;
+        }
+        // сдвиг сло€ на вычисленный шаг влево
+        let timerLine = 10;
+        function succLine() {
+            sp1 = 5;
+            p1 -= sp1;
+            if (p1 > 700) p1 = 12;
+            if (p1 < 12) p1 = 700;
+            l1.style.left = p1;
+            timerLine = setTimeout("succLine()", 0);
+            if (Line === true) stoppedLine();
+        }
+        // начальные установки дл€ движени€ по окружности
+        let angle;
+        let radius;
+        let xbegin;
+        let ybegin;
+        let xcenter;
+        let ycenter;
+        let d = document;
+
+        let timerCircle = 10;
+
+        function initCircle() {
+            Circle = false;
+            angle = 270;
+            radius = 48;
+            xbegin = 85 - 20;
+            ybegin = 86 - 20 + 48;
+            xcenter = 85 - 20;
+            ycenter = 86 - 20;
+            rad = angle * Math.PI / 180;
+            d.myimage.style.left = xbegin;
+            d.myimage.style.top = ybegin;
+        }
+
+        // движение изображени€-спутника по окружности
+        function moveImage() {
+            let rad = angle * Math.PI / 180;
+            // вычисление координаты следующего положени€ изображени€
+            d.myimage.style.left = xcenter + radius * Math.cos(rad);
+            d.myimage.style.top = ycenter - radius * Math.sin(rad);
+            angle -= 5;
+            if (angle >= 360) angle = 0;
+            timerCircle = setTimeout("moveImage()", 0);
+            if (Circle === true) stoppedCircle();
+        }
+
+        function stoppedCircle() {
+            clearTimeout(timerCircle);
+        }
+
+        function stoppedLine() {
+            clearTimeout(timerLine);
+        }
+    </SCRIPT>
+</head>
+
+<body onload="initLine(); initCircle()">
+<center>
+    <h3>ѕример использовани€ слоЄв: движение изображени€ с вращающимс€ спутником</h3>
+    <FORM name="form1">
+        <input type="button" value="”скорить спутник" onClick="Circle=false;moveImage()">
+        <input type="button" value="”скорить слой" onClick="Line=false;succLine()">
+        <input type="button" value="”скорить оба" onClick="Circle=false;Line=false;moveImage();succLine()">
+        <input type="button" value="¬ начальное положение" onClick="initLine(); initCircle()">
+        <input type="button" value="ќстановить спутник" onClick="Circle=true">
+        <input type="button" value="ќстановить слой" onClick="Line=true">
+        <input type="button" value="—топ" onClick="Line=true;Circle=true">
+    </FORM>
+</center>
+<table width=878 height=185 border=4 bgcolor="white" bordercolor="black">
+    <tr>
+        <td>
+            <div id="l1" style="position:absolute; left:0; background:white; width:170px; height:172px; top:93px;">
+                <img src="./images/sun.gif" name="mycenter" ;
+                     style="position:absolute; left:65px; top:66px; width:40px; height:40px">
+                <img src="./images/angel.gif" name="myimage" ;
+                     style="position:absolute; left:65px; top:80px; width:40px; height:40px">
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+
+</html>

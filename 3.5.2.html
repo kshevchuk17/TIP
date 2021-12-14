@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <title>3.5.2: Солнце, Земля, Луна</title>
+    <meta content="text/html" http-equiv="Content-Type">
+    <script language="JavaScript">
+        var Earth = false;
+
+        // Начальные установки для движения Земли вокруг Солнца
+        var angleEarth;
+        var radiusEarth;
+        var xbeginEarth;
+        var ybeginEarth;
+        var xcenterEarth;
+        var ycenterEarth;
+        var d = document;
+
+        function initEarth() {
+            Earth = false;
+            angleEarth = 180;
+            radiusEarth = 300;
+            xbeginEarth = 375;
+            ybeginEarth = 305;
+            xcenterEarth = 750 - 75;
+            ycenterEarth = 380 - 75;
+            radEarth = angleEarth * Math.PI / 180;
+            earthAndMoon.style.left = xbeginEarth;
+            earthAndMoon.style.top = ybeginEarth;
+        }
+
+        // Движение Земли по окружности вокруг Солнца
+        function moveEarth() {
+            var radEarth = angleEarth * Math.PI / 180;
+            // Вычисление координаты следующего положения Земли
+            earthAndMoon.style.left = xcenterEarth + radiusEarth * Math.cos(radEarth);
+            earthAndMoon.style.top = ycenterEarth - radiusEarth * Math.sin(radEarth);
+            angleEarth += 1;
+            if (angleEarth >= 360) angleEarth = 0;
+            timerEarth = setTimeout("moveEarth()", 50);
+            if (Earth === true) stopEarth();
+        }
+
+        function stopEarth() {
+            clearTimeout(timerEarth);
+        }
+    </script>
+
+    <script language="JavaScript">
+        var Moon = false;
+
+        // Начальные установки для движения Луны вокруг Земли
+        var angleMoon;
+        var radiusMoon;
+        var xbeginMoon;
+        var ybeginMoon;
+        var xcenterMoon;
+        var ycenterMoon;
+        var d = document;
+
+        function initMoon() {
+            Moon = false;
+            angleMoon = 180;
+            radiusMoon = 65;
+            xbeginMoon = 0;
+            ybeginMoon = 65;
+            xcenterMoon = 75 - 10;
+            ycenterMoon = 75 - 10;
+            radMoon = angleMoon * Math.PI / 180;
+            d.moon.style.left = xbeginMoon;
+            d.moon.style.top = ybeginMoon;
+        }
+
+        // Движение Луны по окружности вокруг Земли
+        function moveMoon() {
+            var radMoon = angleMoon * Math.PI / 180;
+            // Вычисление координаты следующего положения Луны
+            d.moon.style.left = xcenterMoon + radiusMoon * Math.cos(radMoon);
+            d.moon.style.top = ycenterMoon - radiusMoon * Math.sin(radMoon);
+            angleMoon += 1;
+            if (angleMoon >= 360) angleMoon = 0;
+            timerMoon = setTimeout("moveMoon()", 5);
+            if (Moon == true) stopMoon();
+        }
+
+        function stopMoon() {
+            clearTimeout(timerMoon);
+        }
+    </script>
+</head>
+
+<body onload="initEarth(); moveEarth(); initMoon(); moveMoon()" style="overflow: hidden;" bgcolor="black">
+<img src="./images/sun.jpg" name="sun" ;
+     style="position:absolute; left:675px; top:305px; width:150px; height:150px">
+<div id="earthAndMoon" style="position:absolute; left:375px; top:305px; width:150px; height:150px">
+    <img src="./images/earth.png" name="earth" ;
+         style="position:absolute; left:55px; top:55px; width:40px; height:40px">
+    <img src="./images/moon.jpg" name="moon" ;
+         style="position:absolute; left:0; top:65px; width:20px; height:20px">
+</div>
+</body>
+
+</html>
