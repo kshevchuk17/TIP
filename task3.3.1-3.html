@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <title>Задания 3.3.1-3</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./index.css">
+
+   <script lang="JavaScript">
+       const task1 = () => {
+           rndNum = Math.floor(Math.random() * (100 + 1)); //случайное число [0, 100]
+           alert("Площадь круга c радиусом " + rndNum + " равна " + Math.round(Math.PI * ((rndNum*rndNum))));
+       }
+
+       const task2 = () => {
+           dateVar = new Date();
+           dayPerMs = 1000*60*60*24;
+           weekPerMs = 7 * dayPerMs;
+           todayMs = dateVar.getTime();
+           todayMs += weekPerMs;
+           dateVar.setTime(todayMs)
+           dateAfterWeek = dateVar.toLocaleString();
+           alert("Дата через неделю от текущей даты: " + dateAfterWeek.slice(0,10));
+       }
+       // task1()
+       // task2()
+
+       function income ()
+       {
+           const form = document.forms.form1;
+           const m1Sum = Number(form.elements.m1.value);
+           const m2Sum = Number(form.elements.m2.value);
+           const m3Sum = Number(form.elements.m3.value);
+           const m4Sum = Number(form.elements.m4.value);
+           const m5Sum = Number(form.elements.m5.value);
+           const m6Sum = Number(form.elements.m6.value);
+           form.result.value = (m1Sum + m2Sum + m3Sum + m4Sum + m5Sum + m6Sum) / 6;
+       }
+   </script>
+</head>
+<body>
+
+<h2>Вычисление среднемесячного дохода</h2>
+<p>Введите начисленные вам суммы за месяцы:
+<FORM name="form1">
+   январь: <input type="text" size=8 name="m1">
+   февраль: <input type="text" size=8 name="m2">
+   март: <input type="text" size=8 name="m3">
+   <br>
+   <br>
+   апрель: <input type="text" size=8 name="m4">
+   май: <input type="text" size=8 name="m5">
+   июнь: <input type="text" size=8 name="m6">
+   <br>
+   <br>
+   Средняя зарплата за шесть месяцев:
+   <input  type="text" size=22 name="result">
+   <br>
+   <br>
+   <button type="button" onclick="income()">Вычислить</button>
+   <input type="reset" value="Обновить">
+</FORM>
+</body>
+</html>
