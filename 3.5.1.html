@@ -1,22 +1,21 @@
 <html>
 
 <head>
-    <title>Применение слоев, движение изображения</title>
+    <meta charset="UTF-8">
+    <title>3.5.1</title>
     <META content="text/html" http-equiv="Content-Type">
     <link rel="stylesheet" href="./index.css">
     <SCRIPT LANGUAGE="JavaScript">
-        let p1;     // текущая координата слоя
-        let sp1;    // приращение при движении слоя
+        let p1;
+        let sp1;
         let Circle = false;
         let Line = false;
-        // установка начальных параметров перемещения слоя
         function initLine() {
             Line = false;
             p1 = 700;
             sp1 = 1;
             l1.style.left = 700;
         }
-        // сдвиг слоя на вычисленный шаг влево
         let timerLine = 10;
         function succLine() {
             sp1 = 5;
@@ -27,7 +26,6 @@
             timerLine = setTimeout("succLine()", 0);
             if (Line === true) stoppedLine();
         }
-        // начальные установки для движения по окружности
         let angle;
         let radius;
         let xbegin;
@@ -51,10 +49,8 @@
             d.myimage.style.top = ybegin;
         }
 
-        // движение изображения-спутника по окружности
         function moveImage() {
             let rad = angle * Math.PI / 180;
-            // вычисление координаты следующего положения изображения
             d.myimage.style.left = xcenter + radius * Math.cos(rad);
             d.myimage.style.top = ycenter - radius * Math.sin(rad);
             angle -= 5;
@@ -75,15 +71,15 @@
 
 <body onload="initLine(); initCircle()">
 <center>
-    <h3>Пример использования слоёв: движение изображения с вращающимся спутником</h3>
+    <h3>РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃР»РѕС‘РІ: РґРІРёР¶РµРЅРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЃ РІСЂР°С‰Р°СЋС‰РёРјСЃСЏ СЃРїСѓС‚РЅРёРєРѕРј</h3>
     <FORM name="form1">
-        <input type="button" value="Ускорить спутник" onClick="Circle=false;moveImage()">
-        <input type="button" value="Ускорить слой" onClick="Line=false;succLine()">
-        <input type="button" value="Ускорить оба" onClick="Circle=false;Line=false;moveImage();succLine()">
-        <input type="button" value="В начальное положение" onClick="initLine(); initCircle()">
-        <input type="button" value="Остановить спутник" onClick="Circle=true">
-        <input type="button" value="Остановить слой" onClick="Line=true">
-        <input type="button" value="Стоп" onClick="Line=true;Circle=true">
+        <input type="button" value="РЈСЃРєРѕСЂРёС‚СЊ СЃРїСѓС‚РЅРёРє" onClick="Circle=false;moveImage()">
+        <input type="button" value="РЈСЃРєРѕСЂРёС‚СЊ СЃР»РѕР№" onClick="Line=false;succLine()">
+        <input type="button" value="РЈСЃРєРѕСЂРёС‚СЊ РѕР±Р°" onClick="Circle=false;Line=false;moveImage();succLine()">
+        <input type="button" value="Р’ РЅР°С‡Р°Р»СЊРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ" onClick="initLine(); initCircle()">
+        <input type="button" value="РћСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРїСѓС‚РЅРёРє" onClick="Circle=true">
+        <input type="button" value="РћСЃС‚Р°РЅРѕРІРёС‚СЊ СЃР»РѕР№" onClick="Line=true">
+        <input type="button" value="РЎС‚РѕРї" onClick="Line=true;Circle=true">
     </FORM>
 </center>
 <table width=878 height=185 border=4 bgcolor="white" bordercolor="black">
