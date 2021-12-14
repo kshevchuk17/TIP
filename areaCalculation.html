@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area calculation</title>
+    <script language="JavaScript">
+        function testsel() {
+            let d = document;
+            let a = d.forms["form1"].num.value;
+            let s;
+            let r = "  ";
+            let measure = d.forms["form1"].elements[2].value;
+
+            if (((d.forms["form1"].elements[0])[0]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[0]).text;
+                s = a * a * 3.14;
+            }
+            if (((d.forms["form1"].elements[0])[1]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[1]).text;
+                s = a * a;
+            }
+            if (((d.forms["form1"].elements[0])[2]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[2]).text;
+                s = a * a / 2;
+            }
+            if (((d.forms["form1"].elements[0])[3]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[3]).text;
+                s = a * a * Math.sqrt(3) / 4;
+            }
+            s = measure === '0' ? s : measure === '1' ? s * 100 : measure === '2' ? s * 1000 : s * 39.3701
+            d.forms["form1"]["res"].value = s;
+            d.forms["form1"]["fig"].value = r;
+        }
+    </script>
+</head>
+<body>
+<h3>Вычисление площадей некоторых фигур</h3>
+<table border=5>
+    <FORM name="form1">
+        <tr>
+            <td style="display: flex; flex-direction: column">
+                <div>
+                    Выберите фигуру:
+                    <select name="list1" size=1>
+                        <option value=0>круг
+                        <option value=1>квадрат
+                        <option value=2>треугольник (прямоугольный, равнобедренный)
+                        <option value=3>треугольник равносторонний
+                    </select>&nbsp;&nbsp;&nbsp;
+                </div>
+                <div>
+                    Введите параметр (радиус, сторону, высоту) в метрах:
+                    <input type="text" size=5 name="num"><br>
+                </div>
+                <div>
+                  Ввудите еденицы измерения на выходе:
+                    <select name="list2" size=1>
+                        <option value=0>метры
+                        <option value=1>сантиметры
+                        <option value=2>миллиметры
+                        <option value=3>дюймы
+                    </select>&nbsp;&nbsp;&nbsp;
+                </div>
+                <div>
+                    <input type="button" value="Вычислить" onClick="testsel()">
+                </div>
+                <br><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Фигура: <input type="text" name="fig" size=65>&nbsp;&nbsp;&nbsp;
+                Площадь: <input type="text" name="res" size=14><br>
+                <input type="reset" value="Обновить">
+            </td>
+        </tr>
+    </FORM>
+</table>
+</body>
+</html>

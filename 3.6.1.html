@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<H2 id="n_5">Пример для работы с коллекциями элементов</H2>
+<P id="n_6">Это 6-ой элемент коллекции (порядковый номер - 5)</P>
+<P id="n_7">Это 7-ой элемент коллекции (порядковый номер - 6)</P>
+<SCRIPT id="n_8" language="JavaScript">
+    var arrayOfOutputStrings = [];
+
+    for (var i = 0; i < document.all.length; i++) {
+        var outputString = "Тэг с индексом " + i + ": " +
+            document.all.item(i).tagName;
+        alert(outputString);
+        arrayOfOutputStrings.push("<hr><p>" + outputString + "</p>");
+    }
+
+    for (index in arrayOfOutputStrings) {
+        document.write(arrayOfOutputStrings[index]);
+    }
+</SCRIPT>
+
+</body>
+</html>
