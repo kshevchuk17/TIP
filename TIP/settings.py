@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5lwsqtqa28ecnz^t*63g1xri7ct1m6r=bu+dfsj$n0o&-8##il'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -120,18 +120,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-if DEBUG:
-    STATIC_DIR = os.path.join(BASE_DIR, 'static')
-    STATICFILES_DIRS = [
-        STATIC_DIR,
-        '/var/www/static/',
-    ]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-    STATICFILES_FINDERS = (
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    )
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+#
+# if DEBUG:
+#     STATIC_DIR = os.path.join(BASE_DIR, 'static')
+#     STATICFILES_DIRS = [
+#         STATIC_DIR,
+#         '/home/kirill/projects/TIP/static/',
+#     ]
+# else:
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+#     STATICFILES_FINDERS = (
+#         'django.contrib.staticfiles.finders.FileSystemFinder',
+#         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     )
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
