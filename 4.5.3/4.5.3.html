@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <title>4.5.3</title>
+   <script>
+       function light_logo(trns, drtn)
+       //проявление картинки для данного типа перехода
+       {
+           trns = Number(trns);
+           ImageLogo.filters.revealtrans.Apply();
+           ImageLogo.filters.revealtrans.transition = trns;
+           ImageLogo.filters.revealtrans.duration = drtn;
+           ImageLogo.style.visibility = "visible";
+           ImageLogo.filters.revealtrans.play();
+       }
+   </script>
+</head>
+
+<body>
+<h3>Эффекты перехода  revealtrans().</h3>
+<img id=ImageLogo src="../images/Лев.jpg" style="filter:revealtrans();
+             left:50px; width: 200px; TOP:38px;"><br><br><br>
+<form name="frm">
+   <input name="trns" TYPE="text" value=23 size=3><b><big>
+   Введите тип: 0...23</big></b>
+   <br>
+   <input name="drtn" TYPE="text" value=3 size=3><b><big>
+   Введите продолжительность:</big></b>
+   <br>
+   <input type="button" value="Применить" onClick='ImageLogo.style.visibility="hidden";
+    light_logo(frm.trns.value, frm.drtn.value);'>
+</form>
+</body>
+
+</html>

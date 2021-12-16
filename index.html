@@ -6,24 +6,34 @@
     <title>Главная страница</title>
     <link rel="stylesheet" href="./index.css">
     <script>
-        const byArr = ["Студзень", "Люты", "Сакавік", "Красавік", "Травень", "Чэрвень", "Ліпень", "Жнівень", "Верасень", "Кастрычнік", "Лістапад", "Снежань"];
-        const ruArr = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-        const enArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const esArr = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        function getMonths(lang) {
+            const date = new Date();
+            let months = [];
+            for (let i = 1; i<=12; i++){
+                date.setMonth(i)
+                months.push(date.toLocaleString(lang, {month: "long"}))
+            }
+            return months
+        }
+
         check = confirm("Мы тестируем новую функцию - смена языков. Хотите продолжить?");
         if (check) {
-            const lang = prompt("Введите код языка:\n- Белорусский(by)\n- Русский(ru)\n- Английский(en)\n- Испанский(es)");
+            const lang = prompt("Введите код языка:\n- Русский(ru)\n- Немецкий(de)\n- Английский(en)\n- Испанский(es)");
             switch (lang) {
-                case 'by':
-                    console.log("\tМассив месяцев на белорусском языке:\n" + `\"${byArr.join(", ")}\"`);
-                    break;
                 case 'ru':
+                    const ruArr = getMonths("ru");
                     console.log("\tМассив месяцев на русском языке:\n" + ruArr.join(" \\ "));
                     break;
+                case 'de':
+                    const deArr = getMonths("de")
+                    console.log("\tМассив месяцев на немецком языке:\n" + `\"${deArr.join(", ")}\"`);
+                    break;
                 case 'en':
+                    const enArr = getMonths("en");
                     console.log("\tМассив месяцев на английском языке:\n" + enArr.join(",\n"));
                     break;
                 case 'es':
+                    const esArr = getMonths("es");
                     console.log("\tМассив месяцев на испанском языке:\n" + `\'${esArr.join(", ")}\'`);
                     break;
             }

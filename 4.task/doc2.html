@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Second page</title>
+        <script language="JavaScript">
+            function getParam(param){
+                return new URLSearchParams(window.location.search).get(param);
+            }
+            
+            fileName = getParam("fileName");
+
+            fetch("http://172.20.10.2:5000/" + fileName, {
+                method: "GET"
+            })
+            .then(response => response.text())
+            .then(function (text) {
+                document.write("<p>" + text + "<\p>");
+                document.body.style.backgroundColor = "#e1ecd6";
+            })
+            .catch(err => {
+                alert(err);
+            });
+        </script>
+    </head>
+    <body style="background-color: #e1ecd6;">
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <title>Задание 4.5.1</title>
+   <SCRIPT LANGUAGE="JavaScript">
+       var defSize = 25;
+
+       function display(f) {
+           var newRows = "";
+           // Определение местоположения первого фрейма в коллекции all
+           var elFrame = document.all.tags("FRAME");
+           var startIndex = 0;
+           for (var intFrames = 0; intFrames < frames.length; intFrames++) {
+               var curF = frames[intFrames].document;
+               if (curF.body === f.document.body) {
+                   // Предоставление всего пространства выделенному фрейму
+                   newRows += "*, ";
+                   /* Увеличение заголовка */
+                   curF.all.header.style.fontSize = "200%";
+                   /* Включение полос прокрутки в активном фрейме
+                        путём доступа к элементу FRAME.  */
+                   elFrame[intFrames].scrolling = "yes";
+               } else {
+                   // Установка размера по умолчанию
+                   newRows += defSize.toString() + ", ";
+                   // Сброс изменений размера и шрифта заголовка
+                   curF.all.header.style.fontSize = "";
+                   // Отключение прокручивания
+                   document.all[startIndex + intFrames].scrolling = "no"
+               }
+           }
+           document.body.rows = newRows;
+       }
+   </SCRIPT>
+</head>
+<frameset rows="*, 50, 50, 50, 50">
+   <frame src="frames/1.html" noresize>
+   <frame src="frames/2.html" noresize scrolling="No">
+   <frame src="frames/3.html" noresize scrolling="No">
+   <frame src="frames/4.html" noresize scrolling="No">
+   <frame src="frames/5.html" noresize scrolling="No">
+</frameset>
+</html>

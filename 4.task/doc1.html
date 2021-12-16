@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>First page</title>
+        <script language="JavaScript">
+            function readFile() {
+                const file = dataFile.files[0];
+                let reader = new FileReader();
+                reader.onload = () => {
+                    const splitLines = str => str.split(/\r?\n/);
+                    arrayOfLines = splitLines(reader.result);
+
+                    if (mainDiv === document.getElementById("mainDiv")) {
+                        mainDiv.parentNode.removeChild(mainDiv);
+                    }
+
+                    document.write("<div id=\"mainDiv\">");
+                    
+                    for (let i = 0; i < arrayOfLines.length; i++) {
+                        productData = arrayOfLines[i].split("#");
+                        document.write("<p>PoductNumber=" + productData[0] + " ProductName=" + productData[1] + " ProductCost=" + productData[2] + " <a href=\"doc2.html?fileName=" + productData[3] + "\" target=\"_blank\">Description</a></p>");
+                    }
+                    
+                    document.write("При необходимости повторно выберите файл с перечнем товаров:<br><input name=\"dataFile\" id=\"dataFile\" type=\"file\" onchange=\"readFile()\" title=\"Choose data file\">");
+                    document.write("</div>");
+                    document.body.style.backgroundColor = "#e1ecd6";
+                }
+                reader.readAsText(file);
+            }
+        </script>
+    </head>
+    <body style="background-color: #e1ecd6;">
+        <div id="mainDiv">
+            Выберите файл с перечнем товаров:<br>
+            <input name="dataFile" id="dataFile" type="file" onchange="readFile()" title="Choose data file" accept=".txt">
+        </div>
+    </body>
+</html>

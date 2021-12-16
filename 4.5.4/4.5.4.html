@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<HTML lang="ru">
+<HEAD>
+   <meta charset="UTF-8">
+   <TITLE>4.5.4</TITLE>
+   <!--   <LINK REL="stylesheet" HREF="pr4.css" TYPE="text/css">-->
+   <STYLE TYPE="text/css">
+       body {
+           background-color: #e1ecd6;
+       }
+
+       #clock {
+           font-size: 200%;
+           font-weight: bold
+       }
+
+       /* Формат цифр часов. */
+   </STYLE>
+   <SCRIPT LANGUAGE="JavaScript">
+       // Проверка - используется ли MS IE 4 и выше.
+       var MS = navigator.appVersion.indexOf("MSIE");
+       window.isIE4 = (MS > 0) && (parseInt(navigator.appVersion.substring(MS + 5, MS + 6)) >= 4);
+
+       function lead0(val) {
+           // Добавляются нули впереди при необходимости.
+           return (val < 10) ? "0" + val.toString() : val;
+       }
+
+       function buildTime() {
+           var time = new Date();
+           var ampm = "     AM";
+           var h = time.getHours();
+           // Устанавливается время и индикатор времени суток
+           // (до/после полудня - am/pm).
+           if (h > 12) {
+               h = h - 12;
+               ampm = "     PM";
+           }
+           return lead0(h) + ":" + lead0(time.getMinutes()) + ":" + lead0(time.getSeconds()) + ":" + lead0(time.getMilliseconds()) + ":"
+           + parseInt(String(window.performance.now()).split('.')[1].slice(0,2)) + ampm;
+       }
+
+       function tick() {
+           // Обновление значения на часах на текущее.
+           document.all.clock.innerText = buildTime();
+       }
+   </SCRIPT>
+</HEAD>
+<!-- Проверка. Работает только в браузерах MS IE 4 и выше -->
+<!-- При выгрузке удаляется таймер -->
+<BODY ONUNLOAD="if (null != window.tmr) clearInterval(window.tmr);"
+      ONLOAD="window.tmr = setInterval('tick()', 999);">
+<H1>Цифровые часы</H1>
+<P>Запрограммировано с использованием HTML.
+   Текущее время (AM/PM - до/после полудня):
+   <SPAN ID="clock">
+            <SCRIPT>
+            // Вывод исходного значения времени.
+            document.write(buildTime());
+            </SCRIPT>
+         </SPAN>.
+</P>
+</BODY>
+</HTML>
