@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./index.css">
     <script>
         function getMonths(lang) {
+            console.log(lang)
             const date = new Date();
             let months = [];
             for (let i = 1; i<=12; i++){
@@ -18,7 +19,7 @@
 
         check = confirm("Мы тестируем новую функцию - смена языков. Хотите продолжить?");
         if (check) {
-            const lang = prompt("Введите код языка:\n- Русский(ru)\n- Немецкий(de)\n- Английский(en)\n- Испанский(es)");
+            const lang = prompt("Введите код языка:\n- Русский(ru)\n- Немецкий(de)\n- Английский(en)\n- Испанский(es)\n- Системный(sys)");
             switch (lang) {
                 case 'ru':
                     const ruArr = getMonths("ru");
@@ -35,6 +36,10 @@
                 case 'es':
                     const esArr = getMonths("es");
                     console.log("\tМассив месяцев на испанском языке:\n" + `\'${esArr.join(", ")}\'`);
+                    break;
+                case 'sys':
+                    const sysArr = getMonths(window.navigator.language.split('-')[0]);
+                    console.log("\tМассив месяцев на системном языке:\n" + `\'${sysArr.join(", ")}\'`);
                     break;
             }
         }

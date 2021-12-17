@@ -12,26 +12,42 @@
             return sum / arr.length;
         }
 
-        function min_max_arr(arr, min) {
-            let min_max = arr[0]
+        function maximal(arr) {
+            let max = arr[0]
             for (let i in arr) {
-                if (min) {
-                    if (arr[i] < min_max) min_max = arr[i]
-                } else {
-                    if (arr[i] > min_max) min_max = arr[i]
+                if (arr[i] > max) max = arr[i]
+            }
+            return max
+        }
+
+        function minimal(arr) {
+            let min = arr[0]
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i]
                 }
             }
-            return min_max
+            return min
+        }
+
+        function disp(arr) {
+            let avg = average(arr);
+            let res = 0;
+            for (let i = 0; i < arr.length; i++) {
+                res += Math.sqrt(Math.abs(arr[i] - avg))
+            }
+            return res / arr.length
         }
 
         function income(ob_frm) {
             let x1 = new Array();
-            for (let i = 0; i < ob_frm.elements.length - 5; i++) {
+            for (let i = 0; i < ob_frm.elements.length - 6; i++) {
                 x1[i] = 1.0 * ob_frm.elements[i].value
             }
             ob_frm.result.value = Math.round(average(x1) * 1000) / 1000;
-            ob_frm.result_min.value = min_max_arr(x1, true);
-            ob_frm.result_max.value = min_max_arr(x1, false);
+            ob_frm.result_min.value = minimal(x1);
+            ob_frm.result_max.value = maximal(x1);
+            ob_frm.dispersiya.value = disp(x1);
         }
     </script>
 </head>
@@ -50,7 +66,7 @@
     сентябрь: <input id="m9" type="text" size=8 value="145.55">
     октябрь: <input id="m10" type="text" size=8 value="155.55">
     ноябрь: <input id="m11" type="text" size=8 value="165.55">
-    дукабрь: <input id="m12" type="text" size=8 value="195.55">
+    декабрь: <input id="m12" type="text" size=8 value="195.55">
     Средний доход за
     <script>document.write(form1.elements.length)</script>
     месяцев:
@@ -63,6 +79,12 @@
     <script>document.write(form1.elements.length - 2)</script>
     месяцев:
     <input type="text" size=8 name="result_max"><br>
+
+    Дисперсия за
+    <script>document.write(form1.elements.length - 3)</script>
+    месяцев:
+    <input type="text" size=8 name="dispersiya"><br>
+
     <input type="button" value="Вычислить"
            onClick="income(form1)">&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="reset" value="Обновить">
