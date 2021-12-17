@@ -12,7 +12,7 @@
 </div>
 
 <div class="calc">
-    <span class="num">Число 1: </span><input id="num1" type="number"/>
+    <span class="num">Число 1: </span><input id="num1" type="text"/>
     <br>
     <div class="operation">
         <span>Операция: </span>
@@ -25,7 +25,7 @@
             <option value="--">--</option>
         </select>
     </div>
-    <span class="num">Число 2: </span><input id="num2" type="number"/>
+    <span class="num">Число 2: </span><input id="num2" type="text"/>
     <br>
     <button class="calculateButton" onclick="calculate()">Посчитать</button>
     <br>
@@ -33,7 +33,7 @@
 </div>
 
 <script type="text/javascript">
-    alert("Добро пожаловать на страницу Калькулятор")
+    // alert("Добро пожаловать на страницу Калькулятор")
 
     function operationChange() {
         return document.getElementById("operation").value;
@@ -41,8 +41,43 @@
 
     function calculate() {
         let result;
-        let num1 = Number(document.getElementById("num1").value);
-        const num2 = Number(document.getElementById("num2").value);
+        let add_results = 0;
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+
+        if (num1.indexOf('++') === 0) {
+            num1 = Number(num1.replace('++', ''))
+            num1++
+        } else if(num1.indexOf('--') === 0) {
+            num1 = Number(num1.replace('--', ''))
+            num1--
+        }
+
+        if (num2.indexOf('++') === 0) {
+            num2 = Number(num2.replace('++', ''))
+            num2++
+        } else if(num2.indexOf('--') === 0) {
+            num2 = Number(num2.replace('--', ''))
+            num2--
+        }
+
+
+        if (typeof(num1) === 'string' && num1.endsWith('++')) {
+            num1 = Number(num1.replace('++', ''))
+            add_results++
+        } else if(typeof(num1) === 'string' && num1.endsWith('--')) {
+            num1 = Number(num1.replace('--', ''))
+            add_results--
+        }
+
+        if (typeof(num2) === 'string' && num2.endsWith('++')) {
+            num2 = Number(num2.replace('++', ''))
+            add_results++
+        } else if(typeof(num2) === 'string' && num2.endsWith('--')) {
+            num2 = Number(num2.replace('--', ''))
+            add_results--
+        }
+
         switch (operationChange()) {
             case '+':
                 result = num1 + num2;
@@ -63,7 +98,7 @@
                 result = --num1;
                 break;
         }
-
+        result += add_results
         document.getElementById("result").innerHTML = result;
     }
 </script>
