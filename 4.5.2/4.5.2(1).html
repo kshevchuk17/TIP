@@ -3,10 +3,28 @@
 <head>
    <meta charset="UTF-8">
    <title>Задание 4.5.2(1)</title>
+   <script>
+       deg = 0
+       function rotateClockwise () {
+           deg +=90
+           document.getElementById("ImageLogo2").style.transform = `rotate(${deg}deg)`
+       }
+
+       function rotateCounterClockwise () {
+           deg -=90
+           document.getElementById("ImageLogo2").style.transform = `rotate(${deg}deg)`
+       }
+   </script>
 </head>
 <body>
-<h3>Эффект применения фильтра flipV().</h3>
-<img max-width="400px" height="350px" id=ImageLogo1 src="../images/Лев.jpg">
-<img max-width="400px" height="350px" id=ImageLogo2 src="../images/Лев.jpg" style="filter: flipV();">
+<!--<h3>Эффект применения фильтра flipV().</h3>-->
+<div style = "margin: 20px;">
+   <input onclick="rotateCounterClockwise()" type="button" value="<-" style="font-size: 30px;">
+   <input onclick="rotateClockwise()" type="button" value="->" style="font-size: 30px;">
+</div>
+<!--<img max-width="300px" height="200px" id=ImageLogo1 src="../images/good_smile.png" style = "filter: flipV()">-->
+<img max-width="300px" height="200px" id=ImageLogo2 src="../images/good_smile.png">
+
+
 </body>
 </html>
