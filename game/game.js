@@ -7,11 +7,19 @@ ground.src = "./ground.png";
 const foodImg = new Image();
 foodImg.src = "./food.png";
 
+const badFoodImg = new Image();
+badFoodImg.src = "./bad_food2.jpeg";
+
 let box = 32;
 
 let score = 0;
 
 let food = {
+  x: Math.floor(Math.random() * 17 + 1) * box,
+  y: Math.floor(Math.random() * 15 + 3) * box,
+};
+
+let badFood = {
   x: Math.floor(Math.random() * 17 + 1) * box,
   y: Math.floor(Math.random() * 15 + 3) * box,
 };
@@ -44,14 +52,16 @@ function drawGame() {
 
   ctx.drawImage(foodImg, food.x, food.y);
 
-  for (let i = 0; i < snake.length; i++) {
-    ctx.fillStyle = i === 0 ? "green" : "red";
-    ctx.fillRect(snake[i].x, snake[i].y, box, box);
-  }
+  ctx.drawImage(badFoodImg, badFood.x, badFood.y);
 
   ctx.fillStyle = "white";
   ctx.font = "50px Arial";
   ctx.fillText(score, box * 2.5, box * 1.7);
+
+  for (let i = 0; i < snake.length; i++) {
+    ctx.fillStyle = i === 0 ? "green" : "red";
+    ctx.fillRect(snake[i].x, snake[i].y, box, box);
+  }
 
   let snakeX = snake[0].x;
   let snakeY = snake[0].y;
@@ -64,13 +74,60 @@ function drawGame() {
     };
   } else snake.pop();
 
-  if (
-    snakeX < box ||
-    snakeX > box * 17 ||
-    snakeY < 3 * box ||
-    snakeY > box * 17
-  )
+  if (snakeX === badFood.x && snakeY === badFood.y) {
     clearInterval(game);
+  }
+
+  // if (
+  //   snakeX < box ||
+  //   snakeX > box * 17 ||
+  //   snakeY < 3 * box ||
+  //   snakeY > box * 17
+  // )
+  //   clearInterval(game);
+  console.log(snake[0]);
+  if (snakeX < box) {
+    snakeX = box * 17;
+    for (let i = 0; i < snake.length; i++) {
+      snake[i].x = box * 17;
+    }
+    for (let i = 0; i < snake.length; i++) {
+      ctx.fillStyle = i === 0 ? "green" : "red";
+      ctx.fillRect(snake[i].x, snake[i].y, box, box);
+    }
+  } else if (snakeX > box * 17) {
+    snakeX = box;
+    for (let i = 0; i < snake.length; i++) {
+      snake[i].x = box;
+    }
+    for (let i = 0; i < snake.length; i++) {
+      ctx.fillStyle = i === 0 ? "green" : "red";
+      ctx.fillRect(snake[i].x, snake[i].y, box, box);
+    }
+  } else if (snakeY < 3 * box) {
+    snakeY = box * 17;
+    for (let i = 0; i < snake.length; i++) {
+      snake[i].y = box * 17;
+    }
+    for (let i = 0; i < snake.length; i++) {
+      ctx.fillStyle = i === 0 ? "green" : "red";
+      ctx.fillRect(snake[i].x, snake[i].y, box, box);
+    }
+  } else if (snakeY > box * 17) {
+    snakeY = box * 3;
+    for (let i = 0; i < snake.length; i++) {
+      snake[i].y = box * 3;
+    }
+    for (let i = 0; i < snake.length; i++) {
+      ctx.fillStyle = i === 0 ? "green" : "red";
+      ctx.fillRect(snake[i].x, snake[i].y, box, box);
+    }
+  } else {
+    for (let i = 0; i < snake.length; i++) {
+      ctx.fillStyle = i === 0 ? "green" : "red";
+      ctx.fillRect(snake[i].x, snake[i].y, box, box);
+    }
+  }
 
   if (dir === "left") snakeX -= box;
   if (dir === "right") snakeX += box;
@@ -87,4 +144,12 @@ function drawGame() {
   snake.unshift(newHead);
 }
 
+function drawBadFood() {
+  badFood = {
+    x: Math.floor(Math.random() * 17 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 3) * box,
+  };
+}
+
+setInterval(drawBadFood, 7000);
 let game = setInterval(drawGame, 250);
